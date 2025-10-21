@@ -1,126 +1,271 @@
+/* CSS Variables */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color-green: #28a745;
+    --accent-color-orange: #ff9800;
+    --whatsapp-color: #25D366;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #dee2e6;
+    --shadow-light: rgba(0,0,0,0.08);
+    --shadow-medium: rgba(0,0,0,0.15);
+    --font-family-primary: 'Arial', sans-serif;
+}
+
+/* Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: var(--font-family-primary);
+    background-color: var(--bg-light);
     color: #333;
     text-align: right; 
     direction: rtl;
-    padding-top: 50px;
+    padding: 30px 15px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 650px;
+    width: 100%;
     margin: 0 auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: var(--bg-white);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    transition: transform 0.3s ease-in-out;
 }
 
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Header Styles */
 h1 {
-    color: #007bff;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    /* تنسيق الأيقونة مع العنوان */
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    gap: 10px; 
-    font-size: 24px;
+    gap: 15px; /* Increased gap */
+    font-size: 28px; /* Slightly larger */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Caravan Icon Animation */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 123, 255, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 10px 10px rgba(0, 123, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 123, 255, 0); }
 }
 
 .header-icon {
-    width: 40px; 
-    height: 40px; 
-    vertical-align: middle;
-    border-radius: 50%;
+    width: 50px; /* Larger icon */
+    height: 50px;
+    border-radius: 50%; /* Truly circular */
     object-fit: cover;
+    border: 3px solid var(--primary-color); /* Border for circular image */
+    animation: pulse 2s infinite ease-in-out; /* Pulsing animation */
+    transition: transform 0.3s ease;
 }
 
+.header-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Form Elements */
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: bold;
+    color: #555;
+    font-size: 17px;
 }
 
 select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     box-sizing: border-box; 
     font-size: 16px;
     direction: rtl; 
     text-align: right;
+    background-color: var(--bg-white);
+    appearance: none; /* Remove default arrow in some browsers */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%20164.7c-4.9%204.9-12.8%204.9-17.7%200L146.2%2029.2%2023.7%20164.7c-4.9%204.9-12.8%204.9-17.7%200s-4.9-12.8%200-17.7L137.4%20.3c2.4-2.4%205.5-3.6%208.7-3.6s6.3%201.2%208.7%203.6l123%20123c4.9%204.9%204.9%2012.8%200%2017.7z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: left 15px center;
+    background-size: 12px;
+    cursor: pointer;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#area-select:disabled {
-    background-color: #e9ecef;
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.disabled-select {
+    background-color: var(--bg-light);
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
-
+/* Price Display Area */
 #price-display {
     text-align: center;
-    padding: 15px;
-    border: 1px dashed #007bff;
-    background-color: #eaf3ff;
-    border-radius: 4px;
-    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed var(--primary-color);
+    background-color: #eaf3ff; /* Lighter primary color bg */
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    min-height: 120px; /* Ensure minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#price-display h2 {
-    color: #0056b3;
-    margin-top: 0;
+#price-display p {
+    margin: 5px 0;
+}
+
+#price-display .display-label {
+    font-weight: bold;
+    color: #3f51b5; /* Darker blue for labels */
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 #price-display .price {
-    font-size: 28px;
+    font-size: 32px; /* Larger price */
     font-weight: bold;
-    color: #28a745; 
+    color: var(--accent-color-green); 
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+#price-display .time {
+    font-size: 18px; /* Larger time font */
+    font-weight: bold;
+    color: var(--accent-color-orange); 
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-shadow: 0.5px 0.5px 2px rgba(0,0,0,0.08);
 }
 
 #price-display .details {
     font-size: 14px;
-    color: #6c757d;
+    color: var(--secondary-color);
+    line-height: 1.5;
 }
 
+.info-message {
+    color: var(--secondary-color);
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* Note Section */
 .note {
-    font-size: 12px;
-    color: #666;
-    margin-top: 30px;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
+    font-size: 13px;
+    color: var(--secondary-color);
+    margin-top: 35px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
     text-align: center;
 }
 
-/* تنسيقات زر الواتساب */
+/* WhatsApp Button */
 .whatsapp-contact {
     text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
 }
 
 .whatsapp-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #25D366; 
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    gap: 8px; /* Space between text and icon if you add one later */
+    padding: 14px 30px; /* Larger padding */
+    background-color: var(--whatsapp-color); 
     color: white;
     text-decoration: none;
     border-radius: 50px; 
     font-weight: bold;
-    font-size: 18px;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 19px; /* Larger font */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4); /* Stronger shadow */
+    border: none;
 }
 
 .whatsapp-button:hover {
     background-color: #1DA851; 
-    transform: translateY(-2px); 
+    transform: translateY(-3px) scale(1.02); /* More pronounced hover effect */
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.6);
 }
 
 .whatsapp-button:active {
     transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+        margin: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+        gap: 10px;
+    }
+
+    .header-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .whatsapp-button {
+        padding: 12px 25px;
+        font-size: 17px;
+    }
+
+    #price-display .price {
+        font-size: 28px;
+    }
+
+    #price-display .time {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+    .header-icon {
+        width: 40px;
+        height: 40px;
+    }
+    select, label, .whatsapp-button {
+        font-size: 15px;
+    }
+    .whatsapp-button {
+        padding: 10px 20px;
+    }
 }
