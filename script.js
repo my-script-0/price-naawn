@@ -10,17 +10,17 @@ window.onload = () => { // تم التغيير من document.addEventListener('D
         "near_center": {
             time: "15 - 20 دقيقة",
             prices: {
-                "bn_turk": "700 بيسة",
-                "waheeb": "750 بيسة",
+                "bn_turk": "800 بيسة",
+                "waheeb": "700 بيسة",
                 "shiny": "700 بيسة",
-                "sir_almadfoon": "800 بيسة",
-                "luna_cafe": "750 بيسة",
+                "sir_almadfoon": "700 بيسة",
+                "luna_cafe": "700 بيسة",
                 "gozal_turk": "800 بيسة"
             }
         },
         // منطقة الرايبة - (تم توحيد السعر إلى 1.000 ريال للكل)
         "raybah": {
-            time: "20 - 30 دقيقة",
+            time: "18 - 22 دقيقة",
             prices: {
                 "bn_turk": "1.000 ريال",
                 "waheeb": "1.000 ريال",
