@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: right; 
+    direction: rtl;
+    padding-top: 50px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #007bff;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    /* تنسيق الأيقونة مع العنوان */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    font-size: 24px;
+}
+
+.header-icon {
+    width: 40px; 
+    height: 40px; 
+    vertical-align: middle;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 16px;
+    direction: rtl; 
+    text-align: right;
+}
+
+#area-select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+
+#price-display {
+    text-align: center;
+    padding: 15px;
+    border: 1px dashed #007bff;
+    background-color: #eaf3ff;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#price-display h2 {
+    color: #0056b3;
+    margin-top: 0;
+}
+
+#price-display .price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #28a745; 
+}
+
+#price-display .details {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* تنسيقات زر الواتساب */
+.whatsapp-contact {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #25D366; 
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; 
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851; 
+    transform: translateY(-2px); 
+}
+
+.whatsapp-button:active {
+    transform: translateY(0);
+}
